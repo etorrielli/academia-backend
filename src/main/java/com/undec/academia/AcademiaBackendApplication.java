@@ -4,11 +4,19 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
-@SpringBootApplication(exclude={SecurityAutoConfiguration.class})
+import javax.annotation.PostConstruct;
+import java.util.TimeZone;
+
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class AcademiaBackendApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AcademiaBackendApplication.class, args);
-	}
+    @PostConstruct
+    void init() {
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT-3"));
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(AcademiaBackendApplication.class, args);
+    }
 
 }
