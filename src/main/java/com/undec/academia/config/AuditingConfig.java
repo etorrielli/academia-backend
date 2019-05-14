@@ -1,6 +1,6 @@
-package com.ekeepoit.template.config;
+package com.undec.academia.config;
 
-import com.ekeepoit.template.security.UserPrincipal;
+import com.undec.academia.security.UserPrincipal;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;

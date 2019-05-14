@@ -1,14 +1,13 @@
-package com.ekeepoit.template.controller;
+package com.undec.academia.controller;
 
-import com.ekeepoit.template.exception.ResourceNotFoundException;
-import com.ekeepoit.template.payload.UserIdentityAvailability;
-import com.ekeepoit.template.payload.UserProfile;
-import com.ekeepoit.template.payload.UserSummary;
-import com.ekeepoit.template.repository.UserRepository;
-import com.ekeepoit.template.security.CurrentUser;
-import com.ekeepoit.template.security.UserPrincipal;
-import com.ekeepoit.template.model.User;
-import com.ekeepoit.template.payload.*;
+import com.undec.academia.exception.ResourceNotFoundException;
+import com.undec.academia.model.User;
+import com.undec.academia.payload.UserIdentityAvailability;
+import com.undec.academia.payload.UserProfile;
+import com.undec.academia.payload.UserSummary;
+import com.undec.academia.repository.UserRepository;
+import com.undec.academia.security.CurrentUser;
+import com.undec.academia.security.UserPrincipal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

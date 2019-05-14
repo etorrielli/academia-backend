@@ -1,4 +1,4 @@
-package com.ekeepoit.template.model.audit;
+package com.undec.academia.model.audit;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedBy;

@@ -1,12 +1,11 @@
-package com.ekeepoit.template.config;
+package com.undec.academia.config;
 
-import com.ekeepoit.template.security.CustomUserDetailsService;
-import com.ekeepoit.template.security.JwtAuthenticationEntryPoint;
-import com.ekeepoit.template.security.JwtAuthenticationFilter;
+import com.undec.academia.security.CustomUserDetailsService;
+import com.undec.academia.security.JwtAuthenticationEntryPoint;
+import com.undec.academia.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

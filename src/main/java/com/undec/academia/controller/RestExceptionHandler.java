@@ -1,4 +1,4 @@
-package com.undec.academia;
+package com.undec.academia.controller;
 
 import com.undec.academia.dto.Response;
 import com.undec.academia.exception.CustomException;
