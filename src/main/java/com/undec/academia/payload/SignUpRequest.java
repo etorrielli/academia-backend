@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 /**
- * Created by rajeevkumarsingh on 02/08/17.
+ * Created by etorrielli on 02/08/17.
  */
 
 public class SignUpRequest {

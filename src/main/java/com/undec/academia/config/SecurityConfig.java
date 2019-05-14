@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 
 /**
- * Created by rajeevkumarsingh on 01/08/17.
+ * Created by etorrielli on 01/08/17.
  */
 
 @Configuration

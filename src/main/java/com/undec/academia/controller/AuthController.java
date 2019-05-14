@@ -30,7 +30,7 @@ import java.net.URI;
 import java.util.Collections;
 
 /**
- * Created by rajeevkumarsingh on 02/08/17.
+ * Created by etorrielli on 02/08/17.
  */
 @RestController
 @RequestMapping("/auth")

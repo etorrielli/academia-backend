@@ -1,7 +1,7 @@
 package com.undec.academia.model;
 
 /**
- * Created by rajeevkumarsingh on 07/12/17.
+ * Created by etorrielli on 07/12/17.
  */
 public enum  RoleName {
     ROLE_USER,

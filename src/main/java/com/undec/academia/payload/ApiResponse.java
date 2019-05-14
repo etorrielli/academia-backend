@@ -1,7 +1,7 @@
 package com.undec.academia.payload;
 
 /**
- * Created by rajeevkumarsingh on 19/08/17.
+ * Created by etorrielli on 19/08/17.
  */
 public class ApiResponse {
     private Boolean success;
