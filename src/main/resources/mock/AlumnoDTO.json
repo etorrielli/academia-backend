@@ -1,0 +1,15 @@
+{
+  "alumnoNombre": "Pepe Sanchez",
+  "alumnoDni": "18555222",
+  "alumnoFechaNacimiento": "1988-12-31",
+  "alumnoTelefono": "3514225588",
+  "alumnoCelular": "3516225544",
+  "alumnoMail": "carlos@mail.com",
+  "alumnoCalle": "Maipu",
+  "alumnoNro": "5600",
+  "alumnoBarrio": "Centro",
+  "sexoId": 1,
+  "localidadId": 1,
+  "fliaId": 1,
+  "colegioId": 1
+}
