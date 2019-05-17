@@ -125,7 +125,8 @@ public class AlumnoCurso {
     }
 
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "alumnoId")
-    @JsonIdentityReference(alwaysAsId = true)@ManyToOne
+    @JsonIdentityReference(alwaysAsId = true)
+    @ManyToOne
     @JoinColumn(name = "alumno_id", referencedColumnName = "alumno_id", nullable = false)
     public Alumno getAlumnoByAlumnoId() {
         return alumnoByAlumnoId;

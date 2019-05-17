@@ -131,4 +131,32 @@ public class AlumnoService {
         return response;
     }
 
+    public Response findAllByColegioId(String colId) {
+        Response response = new Response();
+        List<Alumno> alumnoList = alumnoRepository.findAllByColegioIdAndFyhNotNull(colegioRepository.findById(Integer.parseInt(colId)).get());
+        response.setData(alumnoList);
+        return response;
+    }
+
+    public Response findAllDatosCompletos(String colId) {
+        Response response = new Response();
+        Object[][] objectList = alumnoRepository.findAllDatosCompletos(Integer.parseInt(colId));
+        List<AlumnoDTO> alumnoDTOList = new ArrayList<>();
+
+        for (Object[] item : objectList) {
+            Integer alumnoId = (Integer) item[0];
+            String infoAlumno = (String) item[1];
+            String colegioNombre = (String) item[2];
+            String fliaNombre = (String) item[3];
+            AlumnoDTO alumnoDTO = new AlumnoDTO();
+            alumnoDTO.setAlumnoId(alumnoId);
+            alumnoDTO.setInfoAlumno(infoAlumno);
+            alumnoDTO.setColegioNombre(colegioNombre);
+            alumnoDTO.setFliaNombre(fliaNombre);
+            alumnoDTOList.add(alumnoDTO);
+        }
+        response.setData(alumnoDTOList);
+        return response;
+    }
+
 }

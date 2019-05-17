@@ -19,6 +19,34 @@ public class AlumnoDTO {
     private Integer fliaId;
     private Integer colegioId;
 
+    private String infoAlumno;
+    private String colegioNombre;
+    private String fliaNombre;
+
+    public String getInfoAlumno() {
+        return infoAlumno;
+    }
+
+    public void setInfoAlumno(String infoAlumno) {
+        this.infoAlumno = infoAlumno;
+    }
+
+    public String getColegioNombre() {
+        return colegioNombre;
+    }
+
+    public void setColegioNombre(String colegioNombre) {
+        this.colegioNombre = colegioNombre;
+    }
+
+    public String getFliaNombre() {
+        return fliaNombre;
+    }
+
+    public void setFliaNombre(String fliaNombre) {
+        this.fliaNombre = fliaNombre;
+    }
+
     public Integer getAlumnoId() {
         return alumnoId;
     }

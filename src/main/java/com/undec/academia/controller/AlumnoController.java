@@ -29,6 +29,18 @@ public class AlumnoController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @GetMapping("/colegio/{id}")
+    public ResponseEntity<Response> listByColegioId(@PathVariable String id) throws Exception {
+        Response response = alumnoService.findAllByColegioId(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/full/colegio/{id}")
+    public ResponseEntity<Response> listDatosCompletos(@PathVariable String id) throws Exception {
+        Response response = alumnoService.findAllDatosCompletos(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Response> get(@PathVariable String id) throws EntityNotFoundException, Exception {
         Response response = alumnoService.findOneById(id);
