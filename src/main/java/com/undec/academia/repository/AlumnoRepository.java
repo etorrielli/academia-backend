@@ -11,26 +11,24 @@ import java.util.List;
 
 public interface AlumnoRepository extends JpaRepository<Alumno, Integer> {
 
-    List<Alumno> findAllByAlumnoNombre(String nombre);
+    List<Alumno> findAllByAlumnoNombreAndFyhIsNotNull(String nombre);
 
     @Query("SELECT a " +
-            "FROM  Alumno a " +
-            "WHERE a.colegioByColegioId = :colId " +
+            "FROM Alumno a " +
+            "WHERE a.colegioByColegioId = :colegio " +
             "AND a.fyh is not null")
-    List<Alumno> findAllByColegioIdAndFyhNotNull(@Param("colId") Colegio colId);
+    List<Alumno> findAllByColegio(@Param("colegio") Colegio colegio);
 
-    @Query(value = "" +
-            "SELECT a.alumno_id, " +
-            "concat(a.alumno_dni,' - ',a.alumno_nombre), " +
+    @Query(value = "SELECT a.alumno_id, " +
+            "concat(a.alumno_dni, ' - ', a.alumno_nombre)," +
             "c.colegio_nombre, " +
             "f.flia_nombre " +
-            "FROM Alumno a, " +
-            "Colegio c, " +
-            "Flia f  " +
+            "FROM alumno a, " +
+            "colegio c, " +
+            "flia f " +
             "WHERE a.colegio_id = c.colegio_id " +
             "AND a.flia_id = f.flia_id " +
-            "AND a.colegio_id = :colId " +
-            "AND a.fyh is not null", nativeQuery = true)
-    Object[][] findAllDatosCompletos(@Param("colId") Integer colId);
+            "AND a.colegio_id = :colegioId", nativeQuery = true)
+    Object[][] findDatosFull(@Param("colegioId") Integer colegioId);
 
 }

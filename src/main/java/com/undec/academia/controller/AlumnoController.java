@@ -29,18 +29,6 @@ public class AlumnoController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @GetMapping("/colegio/{id}")
-    public ResponseEntity<Response> listByColegioId(@PathVariable String id) throws Exception {
-        Response response = alumnoService.findAllByColegioId(id);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @GetMapping("/full/colegio/{id}")
-    public ResponseEntity<Response> listDatosCompletos(@PathVariable String id) throws Exception {
-        Response response = alumnoService.findAllDatosCompletos(id);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<Response> get(@PathVariable String id) throws EntityNotFoundException, Exception {
         Response response = alumnoService.findOneById(id);
@@ -62,6 +50,24 @@ public class AlumnoController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Response> delete(@PathVariable String id) throws EntityNotFoundException, Exception {
         Response response = alumnoService.delete(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/nombre/{nombre}")
+    public ResponseEntity<Response> listByNombre(@PathVariable String nombre) throws Exception{
+        Response response = alumnoService.findAllByNombre(nombre);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/colegio/{id}")
+    public ResponseEntity<Response> listByColegio(@PathVariable String id) throws Exception{
+        Response response = alumnoService.findAllByColegio(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/full/colegio/{id}")
+    public ResponseEntity<Response> listFullByColegio(@PathVariable String id) throws Exception{
+        Response response = alumnoService.findDatosFull(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 

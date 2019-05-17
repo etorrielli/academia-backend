@@ -18,17 +18,16 @@ public class AlumnoDTO {
     private Integer localidadId;
     private Integer fliaId;
     private Integer colegioId;
-
-    private String infoAlumno;
+    private String datosFull;
     private String colegioNombre;
     private String fliaNombre;
 
-    public String getInfoAlumno() {
-        return infoAlumno;
+    public String getDatosFull() {
+        return datosFull;
     }
 
-    public void setInfoAlumno(String infoAlumno) {
-        this.infoAlumno = infoAlumno;
+    public void setDatosFull(String datosFull) {
+        this.datosFull = datosFull;
     }
 
     public String getColegioNombre() {

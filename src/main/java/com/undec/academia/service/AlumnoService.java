@@ -131,32 +131,59 @@ public class AlumnoService {
         return response;
     }
 
-    public Response findAllByColegioId(String colId) {
+    public Response findAllByNombre(String nombre) throws Exception {
         Response response = new Response();
-        List<Alumno> alumnoList = alumnoRepository.findAllByColegioIdAndFyhNotNull(colegioRepository.findById(Integer.parseInt(colId)).get());
-        response.setData(alumnoList);
+        try {
+            List<Alumno> alumnoList = alumnoRepository.findAllByAlumnoNombreAndFyhIsNotNull(nombre);
+            response.setData(alumnoList);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+            e.printStackTrace();
+            throw e;
+        }
         return response;
     }
 
-    public Response findAllDatosCompletos(String colId) {
+    public Response findAllByColegio(String id) throws Exception {
         Response response = new Response();
-        Object[][] objectList = alumnoRepository.findAllDatosCompletos(Integer.parseInt(colId));
+        try {
+            List<Alumno> alumnoList = alumnoRepository.findAllByColegio(colegioRepository.findById(Integer.parseInt(id)).get());
+            response.setData(alumnoList);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+            e.printStackTrace();
+            throw e;
+        }
+        return response;
+    }
+
+    public Response findDatosFull(String id) throws Exception {
+        Response response = new Response();
+        try {
+            Object[][] objectList = alumnoRepository.findDatosFull(Integer.parseInt(id));
+            List<AlumnoDTO> alumnoDTOList = wrapperObjetToAlumnoDTO(objectList);
+            response.setData(alumnoDTOList);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+            e.printStackTrace();
+            throw e;
+        }
+        return response;
+    }
+
+    protected List<AlumnoDTO> wrapperObjetToAlumnoDTO(Object[][] objectList){
         List<AlumnoDTO> alumnoDTOList = new ArrayList<>();
 
         for (Object[] item : objectList) {
-            Integer alumnoId = (Integer) item[0];
-            String infoAlumno = (String) item[1];
-            String colegioNombre = (String) item[2];
-            String fliaNombre = (String) item[3];
             AlumnoDTO alumnoDTO = new AlumnoDTO();
-            alumnoDTO.setAlumnoId(alumnoId);
-            alumnoDTO.setInfoAlumno(infoAlumno);
-            alumnoDTO.setColegioNombre(colegioNombre);
-            alumnoDTO.setFliaNombre(fliaNombre);
+            alumnoDTO.setAlumnoId((Integer)item[0]);
+            alumnoDTO.setDatosFull((String)item[1]);
+            alumnoDTO.setColegioNombre((String)item[2]);
+            alumnoDTO.setFliaNombre((String)item[3]);
             alumnoDTOList.add(alumnoDTO);
         }
-        response.setData(alumnoDTOList);
-        return response;
+
+        return alumnoDTOList;
     }
 
 }
