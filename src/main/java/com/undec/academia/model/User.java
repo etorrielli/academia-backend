@@ -1,6 +1,7 @@
 package com.undec.academia.model;
 
 import com.undec.academia.model.audit.DateAudit;
+import com.undec.academia.model.audit.UserDateAudit;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -23,7 +24,7 @@ import java.util.Set;
                 "email"
         })
 })
-public class User extends DateAudit {
+public class User extends UserDateAudit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -45,6 +46,9 @@ public class User extends DateAudit {
     @NotBlank
     @Size(max = 100)
     private String password;
+
+    @Column(name="is_active")
+    private Boolean active;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
@@ -101,6 +105,14 @@ public class User extends DateAudit {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public Set<Role> getRoles() {

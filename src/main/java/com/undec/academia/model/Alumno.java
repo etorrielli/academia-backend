@@ -3,6 +3,7 @@ package com.undec.academia.model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.undec.academia.model.audit.UserDateAudit;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,7 +12,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-public class Alumno {
+public class Alumno extends UserDateAudit {
     private Integer alumnoId;
     private String alumnoNombre;
     private String alumnoDni;
@@ -31,6 +32,7 @@ public class Alumno {
     private Colegio colegioByColegioId;
     private Collection<AlumnoCurso> alumnoCursosByAlumnoId;
     private Collection<DetalleAsistencia> detalleAsistenciasByAlumnoId;
+    private Boolean active;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -252,5 +254,14 @@ public class Alumno {
 
     public void setDetalleAsistenciasByAlumnoId(Collection<DetalleAsistencia> DetalleAsistenciasByAlumnoId) {
         this.detalleAsistenciasByAlumnoId = DetalleAsistenciasByAlumnoId;
+    }
+
+    @Column(name="is_active")
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }
